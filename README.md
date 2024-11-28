@@ -38,17 +38,17 @@ To run this project locally, follow these steps:
       cd Climate_Change
       ```
 3.Install dependencies:
-     ```bash
-     npm install
-     #or
-     yarn install
-     ```
+ ```bash
+ npm install
+ #or
+ yarn install
+ ```
 4.Run the Project
-     ```bash
-     npm run dev
-     #or
-     yarn dev
-     ```
+ ```bash
+ npm run dev
+ #or
+ yarn dev
+ ```
 5.Open your browser and go to http://localhost:3000.
   
 
