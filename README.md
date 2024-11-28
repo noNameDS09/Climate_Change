@@ -45,7 +45,9 @@ To run this project locally, follow these steps:
   ```
 4.Run the Project
   ```bash
-  npm run dev #or yarn dev
+  npm run dev
+  #or
+  yarn dev
   ```
 5.Open your browser and go to http://localhost:3000.
   
