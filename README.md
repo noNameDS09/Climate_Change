@@ -35,7 +35,7 @@ To run this project locally, follow these steps:
    ```
 2. Navigate into the project folder:
    ```
-   cd climate-awareness-tool
+   cd Climate_Change
    ```
 3.Install dependencies:
   ```bash
