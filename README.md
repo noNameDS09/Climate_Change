@@ -29,26 +29,26 @@ To run this project locally, follow these steps:
 
 ### Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/noNameDS09/Climate_Change.git
-   ```
-2. Navigate into the project folder:
-   ```
-   cd Climate_Change
-   ```
-3.Install dependencies:
-  ```bash
-  npm install
-  #or
-  yarn install
-  ```
-4.Run the Project
-  ```bash
-  npm run dev
-  #or
-  yarn dev
-  ```
-5.Open your browser and go to http://localhost:3000.
+   1. Clone the repository:
+      ```bash
+      git clone https://github.com/noNameDS09/Climate_Change.git
+      ```
+   2. Navigate into the project folder:
+      ```
+      cd Climate_Change
+      ```
+   3.Install dependencies:
+     ```bash
+     npm install
+     #or
+     yarn install
+     ```
+   4.Run the Project
+     ```bash
+     npm run dev
+     #or
+     yarn dev
+     ```
+   5.Open your browser and go to http://localhost:3000.
   
 
