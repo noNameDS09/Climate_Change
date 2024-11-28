@@ -1,18 +1,22 @@
-// src/app/api/python/route.ts
 import { exec } from 'child_process';
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(request: Request) {
+  // Get the prompt from the query parameter
+  const url = new URL(request.url);
+  const prompt = url.searchParams.get("prompt") || "";
+
   return new Promise((resolve, reject) => {
-    // Run the Python script to generate the plot
-    exec('python src/scripts/generate_plot.py', (error, stdout, stderr) => {
+    // Pass the prompt to the Python script
+    exec(`python src/app/api/python/test.py "${prompt}"`, (error, stdout, stderr) => {
       if (error || stderr) {
-        console.error('Error generating plot:', error || stderr);
-        reject(new NextResponse('Error generating plot', { status: 500 }));
-      } else {
-        console.log('Plot generated successfully:', stdout);
-        resolve(new NextResponse('Plot generated successfully', { status: 200 }));
+        console.error('Error executing Python script:', error || stderr);
+        return reject(new NextResponse('Error executing Python script', { status: 500 }));
       }
+
+      // Return the output of the Python script
+      resolve(new NextResponse(stdout.trim(), { status: 200 }));
     });
   });
 }
+
