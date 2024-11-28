@@ -25,7 +25,7 @@ To run this project locally, follow these steps:
 
 ### Prerequisites
 
-- Node.js (>= 14.x.x) and npm/yarn installed on your machine.
+- Node.js and npm/yarn installed on your machine.
 
 ### Installation
 
