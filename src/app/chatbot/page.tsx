@@ -17,18 +17,19 @@ const Home = () => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [userInput, setUserInput] = useState<string>('');
     const [arrow, setArrow] = useState(false);
-    const [plotGenerated, setPlotGenerated] = useState(false);
 
-    const handleSendMessage = () => {
+    const handleSendMessage = async () => {
         if (userInput.trim()) {
             setMessages([...messages, { text: userInput, sender: 'user' }]);
 
-            setTimeout(() => {
-                setMessages((prevMessages) => [
-                    ...prevMessages,
-                    { text: 'Hello! How can I help you?', sender: 'bot' }
-                ]);
-            }, 1500);
+            // Call the backend API to process the prompt
+            const response = await fetch(`/api/python?prompt=${encodeURIComponent(userInput)}`);
+            const botResponse = await response.text();
+
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { text: botResponse, sender: 'bot' },
+            ]);
 
             setUserInput('');
         }
@@ -39,21 +40,6 @@ const Home = () => {
             handleSendMessage();
         }
     };
-
-
-    useEffect(() => {
-        // Call the API to generate the plot
-        const generatePlot = async () => {
-            const response = await fetch('/api/python');
-            if (response.ok) {
-                setPlotGenerated(true);
-            } else {
-                console.error('Error generating plot');
-            }
-        };
-
-        generatePlot();
-    }, []);
 
     return (
         <div className="flex flex-col gap-y-5 justify-center items-center h-[90vh] mt-24 mb-20"
@@ -74,7 +60,6 @@ const Home = () => {
                             strings: ['Ask Me Anything', 'What is Carbon Footprint?', 'What is Carbon Emission?', 'How should I reduce my carbon footprint?'],
                             autoStart: true,
                             loop: true,
-                            
                         }}
                     />
                 </div>
@@ -104,19 +89,12 @@ const Home = () => {
                         onMouseEnter={() => { setArrow(true); }}
                         onMouseLeave={() => { setArrow(false); }}
                         onClick={handleSendMessage}
-                        className={`px-4 py-2 w-18 min-w-18  text-white rounded-md  focus:outline-none ${arrow === true ? 'hover:bg-green-600 duration-300' : 'bg-green-500'}`}
+                        className={`px-4 py-2 w-18 min-w-18 text-white rounded-md focus:outline-none ${arrow === true ? 'hover:bg-green-600 duration-300' : 'bg-green-500'}`}
                     >
                         Send
                     </button>
                 </div>
             </div>
-            {/* <div>
-                {plotGenerated ? (
-                    <img src="/plot.png" alt="Generated Plot" />
-                ) : (
-                    <p>Generating plot...</p>
-                )}
-            </div> */}
         </div>
     );
 };
