@@ -35,8 +35,8 @@ const Footer = () => {
                     <div>
                         <h4 className="text-xl font-semibold mb-4">Contact</h4>
                         <ul className="text-gray-400 text-sm">
-                            <li>Email: <p className="hover:text-blue-500">shivampatil2023.it@mmcoe.edu.in</p></li>
-                            <li>Phone: <p className="hover:text-blue-500">+91 81779 18140</p></li>
+                            <li>Email: <p className="hover:text-blue-500">nonameds1022@gmail.com</p></li>
+                            <li>Phone: <p className="hover:text-blue-500">+91 7020595620 </p></li>
                             <li>MMCOE, Pune</li>
                         </ul>
                     </div>
