@@ -1,7 +1,6 @@
-// src/lib/db.js
 import mongoose from "mongoose";
 
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/test"; // Your local DB connection string
+const MONGO_URI = process.env.MONGO_URI;
 
 if (!MONGO_URI) {
   throw new Error("MongoDB URI is required");
